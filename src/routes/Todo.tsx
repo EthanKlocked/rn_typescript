@@ -1,7 +1,7 @@
 /**************** INIT ****************/
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { TodoInsert, TodoList } from '../components';
-import { todoInfo } from '../interfaces';
+import { TodoInsert, TodoList } from '@/components';
+import { todoInfo } from '@/interfaces';
 import React, { useState } from 'react';
 
 /************** INTERFACE *************/
