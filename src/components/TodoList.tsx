@@ -1,8 +1,8 @@
 /**************** INIT ****************/
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
-import { TodoListItem } from '@/components';
-import { todoInfo } from '@/interfaces';
+import { TodoListItem } from 'components';
+import { todoInfo } from 'interfaces';
 
 /************** INTERFACE *************/
 interface todoListProps {
