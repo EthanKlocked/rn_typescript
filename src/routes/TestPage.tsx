@@ -1,5 +1,5 @@
 /**************** INIT ****************/
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import React from 'react';
 
 /************** INTERFACE *************/
@@ -8,14 +8,10 @@ interface routerInterface {
 }
 
 /************** COMPONENT *************/
-export default function Home({ navigation } : routerInterface) {
+export default function TestPage({ navigation } : routerInterface) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome!!</Text>     
-            <Button
-                title="Refresh all stacks"
-                onPress={() => navigation.popToTop()}
-            />            
+            <Text>TEST PAGE</Text>
         </View>
     );
 }

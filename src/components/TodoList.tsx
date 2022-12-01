@@ -1,7 +1,7 @@
 /**************** INIT ****************/
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
-import { TodoListItem } from 'components';
+import TodoListItem from './TodoListItem';
 import { todoInfo } from 'interfaces';
 
 /************** INTERFACE *************/

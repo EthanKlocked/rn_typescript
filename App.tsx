@@ -1,11 +1,11 @@
 /**************** INIT ****************/
-import { Home, Todo } from 'routes';
+import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { checkFirstLaunch } from 'lib';
-import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CustomDrawer } from 'components';
 
 /************** COMPONENT *************/
 export default function App() {
@@ -40,6 +40,10 @@ export default function App() {
 
     //render
     return (
+        <NavigationContainer>
+            <CustomDrawer />
+        </NavigationContainer>
+        /*
         <>
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
@@ -53,6 +57,11 @@ export default function App() {
                         component={Todo}
                         options={{ title: 'Todo' }}
                     />
+                    <Stack.Screen
+                        name="TestPage"
+                        component={TestPage}
+                        options={{ title: 'TestPage' }}
+                    />                    
                 </Stack.Navigator>
             </NavigationContainer>
             <Button
@@ -72,6 +81,7 @@ export default function App() {
                 onPress={() => refreshAsyncStorage()}
             />                                                
         </>
+        */
     );
 };
 
