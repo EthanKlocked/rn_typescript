@@ -122,7 +122,7 @@ const MainTab = () => {
 }
 
 /*########## DRAWER #########*/
-//<< DEPTH 4 >>//
+//<< DEPTH 2 >>//
 const MainDrawer = () => {
     return(
         <CustomDrawer 
