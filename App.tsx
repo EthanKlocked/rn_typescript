@@ -1,17 +1,12 @@
 /**************** INIT ****************/
 import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { checkFirstLaunch } from 'lib';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CustomDrawer } from 'components';
+import { TotalNavigation } from 'components';
 
 /************** COMPONENT *************/
 export default function App() {
-    //init
-    const Stack = createStackNavigator();
-
     //function
     const initExec = async() : Promise<void> => {
         const firstLaunchResult = await checkFirstLaunch();
@@ -33,16 +28,14 @@ export default function App() {
         console.log(FirstLaunched);
     }        
 
-
+    //effect
     useEffect(() => {
         initExec();
     },[]);
 
     //render
     return (
-        <NavigationContainer>
-            <CustomDrawer />
-        </NavigationContainer>
+        <TotalNavigation />
         /*
         <>
             <NavigationContainer>

@@ -11,3 +11,15 @@ export interface TodoListItemProps {
     onRemove: any;
     onToggle: any;
 }
+
+export interface pageInfo {
+    name : string;
+    component : any;
+    title : string;
+    icon : string;
+}
+
+export interface pageListInfo {
+    initial : string;
+    pages : any[];
+}

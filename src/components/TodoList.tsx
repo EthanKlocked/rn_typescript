@@ -21,7 +21,7 @@ const TodoList = ({todos, onRemove, onToggle} : todoListProps) => {
                     {...todo} 
                     onRemove={onRemove}
                     onToggle={onToggle}
-                    />
+                />
             ))}
         </ScrollView>
     );

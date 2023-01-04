@@ -1,20 +1,25 @@
 /**************** INIT ****************/
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
-import { Home, Todo } from 'routes';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
-import {Ionicons} from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { pageListInfo } from 'interfaces';
 
-const Drawer = createDrawerNavigator();
+/************** INTERFACE *************/
+interface pageListProps {
+    pageList: pageListInfo; 
+}
 
 /************** COMPONENT *************/
+const Drawer = createDrawerNavigator();
+
 const DrawerContent = (props : any) => {
     return (
         <View style = {styles.contentContainer} >
             <DrawerContentScrollView {...props}>
                 <View style={styles.contentHeader}>
                     <View>
-                        <Text>로그인 사용자: 홍길동(2018xxxxxx)</Text>
+                        <Text>로그인 사용자: TEST(2022XXXXX)</Text>
                     </View>
                     <Ionicons name="person-circle-outline" size={35}></Ionicons>
                 </View>
@@ -29,54 +34,48 @@ const DrawerContent = (props : any) => {
         </View>
     );
 };
-function HeaderR() {
+
+const HeaderR = ()  => {
     return ( <Ionicons name="notifications-outline" size={30}></Ionicons>);
 }
 
-const CustomDrawer = () => {
+const CustomDrawer = ({pageList} : pageListProps) => {
     return (        
         <Drawer.Navigator 
-            initialRouteName="Home"
+            initialRouteName={pageList.initial}
             screenOptions={{
                 headerShown: true,
                 headerStyle: {
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'gold',
                     elevation: 0,
                     shadowOpacity: 0,
                 },
                 headerTitle: '',
+                overlayColor: 'rgba(255, 255, 255, 0.5)',
+                drawerActiveTintColor:'#555',
+                drawerActiveBackgroundColor:'gold',
+                drawerInactiveTintColor:'orange',
             }}
             drawerContent={props => <DrawerContent {...props} /> } 
         >
-            <Drawer.Screen 
-                name="Home" 
-                component={Home} 
-                options={{
-                    drawerLabel: 'Home',
-                    headerTitle: () => (
-                        <Text>TEST</Text>
-                    ),
-                    headerTitleAlign: 'center',
-                    headerRight: ()=> <HeaderR/>,
-                    headerRightContainerStyle: {paddingRight: 10},
-                    headerLeftContainerStyle: {paddingRight: 10}
-                }}
-            /> 
-            <Drawer.Screen 
-                name="Todo" 
-                component={Todo} 
-                options={{
-                    drawerLabel: 'Todo',
-                    headerTitle: () => (
-                        <Text>TEST</Text>
-                    ),
-                    headerTitleAlign: 'center',
-                    headerRight: ()=> <HeaderR/>,
-                    headerRightContainerStyle: {paddingRight: 10},
-                    headerLeftContainerStyle: {paddingRight: 10}
-                }}
-            /> 
-            {/*<Drawer.Screen name="열람실 좌석 배정" component={ReadingRoom} />*/} 
+            {
+                pageList.pages.map((value : any, key : number) => (
+                    <Drawer.Screen 
+                        key={key}
+                        options={{
+                            drawerLabel: value.title,
+                            headerTitle: () => (
+                                <MaterialCommunityIcons name="egg-easter" color="orange" size={35}></MaterialCommunityIcons>
+                            ),
+                            headerTitleAlign: 'center',
+                            headerRight: ()=> <HeaderR/>,
+                            headerRightContainerStyle: {paddingRight: 10},
+                            headerLeftContainerStyle: {paddingRight: 10}
+                        }}
+                        {...value}
+                    />                     
+                ))
+            }
         </Drawer.Navigator >
     );
 }
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 15,
-        backgroundColor: '#f6f6f6',
+        backgroundColor: '#ffdc73',
         marginBottom: 10,
     },
     LogoutButton:{
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
         right: 10,
         left: 10,
         bottom: 280,
-        backgroundColor: '#009DAE',
+        backgroundColor: '#ffdc73',
         padding: 10,
         borderRadius: 3
     },
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width:200,
         height:0,
-        backgroundColor: '#009DAE',
+        backgroundColor: '#ffdc73',
     },
     logoutText: {
         fontSize: 15,

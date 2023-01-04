@@ -1,5 +1,5 @@
 /**************** INIT ****************/
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
 import { TodoInsert, TodoList } from 'components';
 import { todoInfo } from 'interfaces';
 import React, { useState } from 'react';
@@ -40,11 +40,15 @@ export default function Todo({ navigation } : routerInterface) {
     //render
     return (
         <SafeAreaView style={styles.container}>
-        <Text style={styles.appTitle}>Hello Todolist</Text>
-        <View style={styles.card}>
-            <TodoInsert onAddTodo={addTodo}/>
-            <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/>
-        </View>
+            <Text style={styles.appTitle}>Hello Todolist</Text>
+            <View style={styles.card}>
+                <TodoInsert onAddTodo={addTodo}/>
+                <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/>
+            </View>
+            <Button
+                title="Go to Home"
+                onPress={() => navigation.navigate("Home")}
+            />                        
         </SafeAreaView>
     );
 }

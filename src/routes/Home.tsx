@@ -13,6 +13,10 @@ export default function Home({ navigation } : routerInterface) {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Welcome!!</Text>     
             <Button
+                title="Go to Todo"
+                onPress={() => navigation.navigate("Todo")}
+            />            
+            <Button
                 title="Refresh all stacks"
                 onPress={() => navigation.popToTop()}
             />            
